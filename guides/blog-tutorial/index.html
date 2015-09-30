@@ -1,6 +1,12 @@
 <!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - Blog Tutorial</title><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../assets/stylesheets/style-75d468d0.css" rel="stylesheet" /></head><body class="guides guides_blog-tutorial guides_blog-tutorial_index"><div class="grid"><header class="header"><h1 class="header__name"><a class="padrino-name" href="/">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a class="navigation__link" href="/">Overview</a></li><li class="navigation__item"><a class="navigation__link--is-active" href="/guides/">Guides</a></li><li class="navigation__item"><a class="navigation__link" href="http://www.rubydoc.info/github/padrino/padrino-framework">API</a></li><li class="navigation__item"><a class="navigation__link" href="/contribute/">Contribute</a></li><li class="navigation__item"><a class="navigation__link" href="/blog/">Blog</a></li><li class="navigation__item"><a class="navigation__link" href="https://github.com/padrino/padrino-framework"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Guides</h4><ul class="sidebar__items"><li class="sidebar__item"><a class="sidebar__link--is-active" href="/guides/">Home</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/getting-started/">Getting Started</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/installation/">Installation</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/basic-projects/">Basic Projects</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/generators/">Generators</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/development-commands/">Development Commands</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/mounting-applications/">Mounting Applications</a></li><li class="sidebar__item"><a class="sidebar__link--is-active" href="/guides/blog-tutorial/">Blog Tutorial</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/application-helpers/">Application Helpers</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/padrino-admin/">Padrino Admin</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/padrino-mailer/">Padrino Mailer</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/padrino-cache/">Padrino Cache</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/controllers/">Controllers</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/localization/">Localization</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/extensions/">Extensions</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/rake-tasks/">Rake Tasks</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/the-bleeding-edge/">The Bleeding Edge</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/adding-new-components/">Adding New Components</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/standalone-usage-in-sinatra/">Standalone Usage in Sinatra</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/running-padrino-on-jruby/">Running Padrino on JRuby</a></li></ul></div></div><div class="page__content"><div class="content"><h1 id="blog-turorial">Blog Turorial</h1>
 
-<p>When reading about a new framework, I often find that the best way to get familiar is to read a brief tutorial on how to develop a simple application. This can quickly give new users a sense of the development flow and processes involved in using a framework. This guide will show new users how to develop a simple blog using the Padrino framework. Along the way, each step will be explained and links will be provided to further information on different relevant topics.</p>
+<p>When reading about a new framework, I often find that the best way to get
+familiar is to read a brief tutorial on how to develop a simple application.
+This can quickly give new users a sense of the development flow and processes
+involved in using a framework. This guide will show new users how to develop a
+simple blog using the Padrino framework. Along the way, each step will be
+explained and links will be provided to further information on different
+relevant topics.</p>
 
 <hr />
 
@@ -16,68 +22,105 @@
 
 <h2 id="study-guide">Study Guide</h2>
 
-<p>To skip this tutorial or immediately see the complete blog tutorial project, you can either checkout the <a href="http://github.com/padrino/sample_blog">blog tutorial repository</a> using Git:</p>
+<p>To skip this tutorial or immediately see the complete blog tutorial project, you
+can either checkout the
+<a href="http://github.com/padrino/sample_blog">blog tutorial repository</a> using Git:</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span>git clone git://github.com/padrino/sample_blog.git
 </code></pre>
 
-<p>or even execute the <a href="http://gist.github.com/357045">blog tutorial project template</a> which will automatically build the blog project step by step using our excellent template runner. You can do this simply by invoking:</p>
+<p>or even execute the
+<a href="http://gist.github.com/357045">blog tutorial project template</a> which will
+automatically build the blog project step by step using our excellent template
+runner. You can do this simply by invoking:</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span>padrino g project sample_blog --template sampleblog
 </code></pre>
 
-<p>To learn more about our template generator, be sure to check out the <a href="/guides/generators">generators guide</a>.</p>
+<p>To learn more about our template generator, be sure to check out the
+<a href="/guides/generators">generators guide</a>.</p>
 
 <hr />
 
 <h2 id="installation">Installation</h2>
 
-<p>In order to develop a Padrino application, we must have a few things installed. First, we must obviously have <a href="http://www.ruby-lang.org/en/">ruby</a> and <a href="http://rubygems.org/">rubygems</a> installed. Next, we must install the padrino framework gems:</p>
+<p>In order to develop a Padrino application, we must have a few things installed.
+First, we must obviously have <a href="http://www.ruby-lang.org/en/">ruby</a> and
+<a href="http://rubygems.org/">rubygems</a> installed. Next, we must install the padrino
+framework gems:</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span>gem install padrino
 </code></pre>
 
-<p>For more details on installation, check out the <a href="/guides/installation">installation guide</a>. Once this has been finished, all necessary dependencies should be ready and we can begin developing our sample blog.</p>
-
-<hr />
+<p>For more details on installation, check out the
+<a href="/guides/installation">installation guide</a>. Once this has been finished, all
+necessary dependencies should be ready and we can begin developing our sample
+blog. —</p>
 
 <h2 id="project-generation">Project Generation</h2>
 
-<p>To create a Padrino application, the best place to start is using the convenient Padrino generator. Similar to Rails, Padrino has a project generator which will create a skeleton application with all the files you need to being development of your new idea. Padrino is an agnostic framework and supports using a variety of different template, testing, JavaScript and database components. You can learn more by reading the <a href="/guides/generators">generators guide</a>.</p>
+<p>To create a Padrino application, the best place to start is using the convenient
+Padrino generator. Similar to Rails, Padrino has a project generator which will
+create a skeleton application with all the files you need to being development
+of your new idea. Padrino is an agnostic framework and supports using a variety
+of different template, testing, JavaScript and database components. You can
+learn more by reading the <a href="/guides/generators">generators guide</a>.</p>
 
-<p>For this sample application, we will use the ActiveRecord ORM, the Haml templating language, the Shoulda testing framework and the jQuery JavaScript library. With that in mind, let us generate our new project:</p>
+<p>For this sample application, we will use the ActiveRecord ORM, the Haml
+templating language, the Shoulda testing framework and the jQuery JavaScript
+library. With that in mind, let us generate our new project:</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span>padrino g project sample_blog -t shoulda -e haml -c sass -s jquery -d activerecord -b
 </code></pre>
 
-<p>This command will generate our basic Padrino project and the print out a nice report of the files generated. The output of this generation command can be viewed in <a href="http://gist.github.com/337148">this gist</a> file. Notice the <code>-b</code> flag in the previous command which automatically instructs bundler to install all dependencies. All we need to do now is <code>cd</code> into our brand new application.</p>
+<p>This command will generate our basic Padrino project and the print out a nice
+report of the files generated. The output of this generation command can be
+viewed in <a href="http://gist.github.com/337148">this gist</a> file. Notice the <code>-b</code> flag
+in the previous command which automatically instructs bundler to install all
+dependencies. All we need to do now is <code>cd</code> into our brand new application.</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span><span class="nb">cd </span>sample_blog
 </code></pre>
 
-<p>Now, the terminal should be inside the root of our newly generated application with all necessary gem dependencies installed. Let us take a closer look at the particularly important generated files before we continue on with development.</p>
+<p>Now, the terminal should be inside the root of our newly generated application
+with all necessary gem dependencies installed. Let us take a closer look at the
+particularly important generated files before we continue on with development.</p>
 
 <ul>
-  <li><code>Gemfile</code> – Be sure to include any necessary gem dependencies for your app in this file!</li>
-  <li><code>app/app.rb</code> – This is the primary configuration file for your core application.</li>
-  <li><code>config/apps.rb</code> – This defines which applications are mounted in your project.</li>
-  <li><code>config/database.rb</code> – This defines the connection details for your chosen database adapter.</li>
+  <li><code>Gemfile</code> – Be sure to include any necessary gem dependencies for your app in
+this file!</li>
+  <li><code>app/app.rb</code> – This is the primary configuration file for your core
+application.</li>
+  <li><code>config/apps.rb</code> – This defines which applications are mounted in your
+project.</li>
+  <li><code>config/database.rb</code> – This defines the connection details for your chosen
+database adapter.</li>
 </ul>
 
 <p>The following important directories are also generated:</p>
 
 <ul>
-  <li><code>app/controllers</code> – This is where the Padrino route definitions should be defined.</li>
-  <li><code>app/helpers</code> – This is where helper methods should be defined for your application.</li>
-  <li><code>app/views</code> – This should contain your template views to be rendered in a controller.</li>
-  <li><code>lib</code> – This should contain any extensions, libraries or other code to be used in your project.</li>
-  <li><code>public</code> – This is where images, style sheets and JavaScript files should be stored.</li>
+  <li><code>app/controllers</code> – This is where the Padrino route definitions should be
+defined.</li>
+  <li><code>app/helpers</code> – This is where helper methods should be defined for your
+application.</li>
+  <li><code>app/views</code> – This should contain your template views to be rendered in a
+controller.</li>
+  <li><code>lib</code> – This should contain any extensions, libraries or other code to be used
+in your project.</li>
+  <li><code>public</code> – This is where images, style sheets and JavaScript files should be
+stored.</li>
   <li><code>test</code> – This is where your model and controller tests should be stored.</li>
 </ul>
 
-<p>Now, let us examine the <code>config/database.rb</code> file to make sure the database connection settings are correct. For now, the defaults are OK for this tutorial. A sqlite3 database will be used that is stored inside <code>db/sample_blog_development.db</code>.</p>
+<p>Now, let us examine the <code>config/database.rb</code> file to make sure the database
+connection settings are correct. For now, the defaults are OK for this tutorial.
+A sqlite3 database will be used that is stored inside
+<code>db/sample_blog_development.db</code>.</p>
 
-<p>Let us also setup a few simple routes in our application to demonstrate the Padrino routing system. Let’s go into the <code>app/app.rb</code> file and enter the following routes:</p>
+<p>Let us also setup a few simple routes in our application to demonstrate the
+Padrino routing system. Let’s go into the <code>app/app.rb</code> file and enter the
+following routes:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/app.rb</span>
 <span class="k">module</span> <span class="nn">SampleBlog</span>
@@ -102,38 +145,53 @@
 <span class="k">end</span>
 </code></pre>
 
-<p>Note that the first route here sets up a simple string to be returned at the root URL of the application. The second route defines a one-line ‘about’ page inline using Haml which is then explicitly mapped to the ‘/about_us’ URL. The symbol <code>:about</code> is used to reference the route later.</p>
+<p>Note that the first route here sets up a simple string to be returned at the
+root URL of the application. The second route defines a one-line ‘about’ page
+inline using Haml which is then explicitly mapped to the ‘/about_us’ URL. The
+symbol <code>:about</code> is used to reference the route later.</p>
 
-<p>Be sure to check out the <a href="/guides/controllers">controllers guide</a> for a comprehensive overview of the routing system.</p>
+<p>Be sure to check out the <a href="/guides/controllers">controllers guide</a> for a
+comprehensive overview of the routing system.</p>
 
 <hr />
 
 <h2 id="admin-dashboard-setup">Admin Dashboard Setup</h2>
 
-<p>Next, this is a good time to setup the Padrino Admin panel which allows us to easily view, search and modify data for a project. Let’s go back to the console and enter:</p>
+<p>Next, this is a good time to setup the Padrino Admin panel which allows us to
+easily view, search and modify data for a project. Let’s go back to the console
+and enter:</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span>padrino g admin
 <span class="gp">$ </span>bundle install
 </code></pre>
 
-<p>This will create the admin sub-application within your project and mount it within the <code>config/apps.rb</code> file. The output of this command can be viewed in <a href="http://gist.github.com/324298">this gist</a> file.</p>
+<p>This will create the admin sub-application within your project and mount it
+within the <code>config/apps.rb</code> file. The output of this command can be viewed in
+<a href="http://gist.github.com/324298">this gist</a> file.</p>
 
-<p>Now, we should follow the instructions and create our database, run our migrations and run the seed tasks which has been generated in <code>db/seeds.rb</code>. Go to the terminal and run:</p>
+<p>Now, we should follow the instructions and create our database, run our
+migrations and run the seed tasks which has been generated in <code>db/seeds.rb</code>. Go
+to the terminal and run:</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span>padrino rake ar:create
 <span class="gp">$ </span>padrino rake ar:migrate
 <span class="gp">$ </span>padrino rake seed
 </code></pre>
 
-<p>During this process, you will be prompted to enter an email and password to use for the admin dashboard. Be sure to remember this for use later in development.</p>
+<p>During this process, you will be prompted to enter an email and password to use
+for the admin dashboard. Be sure to remember this for use later in development.</p>
 
-<p>To read more about the features of the admin panel, check out the <a href="/guides/padrino-admin">Admin Panel Guide</a>.</p>
+<p>To read more about the features of the admin panel, check out the
+<a href="/guides/padrino-admin">Admin Panel Guide</a>.</p>
 
 <hr />
 
 <h2 id="booting-padrino">Booting Padrino</h2>
 
-<p>Now the Padrino project has been generated, the database has been configured and created and the admin panel has been properly setup. We can now start up our Padrino application server. This is quite easy to do with the built-in Padrino tasks. Simply execute the following in the terminal:</p>
+<p>Now the Padrino project has been generated, the database has been configured and
+created and the admin panel has been properly setup. We can now start up our
+Padrino application server. This is quite easy to do with the built-in Padrino
+tasks. Simply execute the following in the terminal:</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span>padrino start
 </code></pre>
@@ -147,21 +205,38 @@
 <span class="gp">&gt;&gt; </span>Listening on localhost:3000, CTRL+C to stop
 </code></pre>
 
-<p>To read more about available terminal commands, checkout the <a href="/guides/development-commands">Development and Terminal Commands</a> guide.</p>
+<p>To read more about available terminal commands, checkout the
+<a href="/guides/development-commands">Development and Terminal Commands</a> guide.</p>
 
-<p>Your application now exists on <a href="http://localhost:3000">http://localhost:3000</a>. Visit this URL in the browser and you should see the route render <code>Hello World!</code> route that we defined earlier in this tutorial.</p>
+<p>Your application now exists on <a href="http://localhost:3000">http://localhost:3000</a>. Visit this URL in the
+browser and you should see the route render <code>Hello World!</code> route that we defined
+earlier in this tutorial.</p>
 
-<p>We can also visit the admin panel by going to the URL: <a href="http://localhost:3000/admin">http://localhost:3000/admin</a> and then log in using the admin credentials specified during the <code>rake seed</code> command performed earlier. Feel free to explore this area and checkout the existing accounts. We will come back to this in more detail later. To read more about the features of the admin panel, check out the <a href="/guides/padrino-admin">Admin Panel Guide</a>.</p>
+<p>We can also visit the admin panel by going to the URL:
+<a href="http://localhost:3000/admin">http://localhost:3000/admin</a> and then log in using the admin credentials
+specified during the <code>rake seed</code> command performed earlier. Feel free to explore
+this area and checkout the existing accounts. We will come back to this in more
+detail later. To read more about the features of the admin panel, check out the
+<a href="/guides/padrino-admin">Admin Panel Guide</a>.</p>
 
-<p>Worth noting here is that Padrino has full support for code reloading in development mode. This means you can keep the Padrino server running and change your code source and when you refresh in the browser, the changes will be automatically displayed. You might want to open up a new terminal and <code>cd</code> to your directory and keep the server running.</p>
+<p>Worth noting here is that Padrino has full support for code reloading in
+development mode. This means you can keep the Padrino server running and change
+your code source and when you refresh in the browser, the changes will be
+automatically displayed. You might want to open up a new terminal and <code>cd</code> to
+your directory and keep the server running.</p>
 
 <hr />
 
 <h2 id="creating-posts">Creating Posts</h2>
 
-<p>Now that the application is ready and the layouts have been defined, let’s implement the functionality to view our blog posts and even add the ability to create new posts!</p>
+<p>Now that the application is ready and the layouts have been defined, let’s
+implement the functionality to view our blog posts and even add the ability to
+create new posts!</p>
 
-<p>Let’s start off by generating the model into our app directory. As of version <strong>0.10.0</strong>, the models will default to generating at the top level ‘models’ directory in a project. We can specify the location by appending the -a option which will generate the models into the designated sub-app directory.</p>
+<p>Let’s start off by generating the model into our app directory. As of version
+<strong>0.10.0</strong>, the models will default to generating at the top level ‘models’
+directory in a project. We can specify the location by appending the -a option
+which will generate the models into the designated sub-app directory.</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span>padrino g model post title:string body:text -a app
 <span class="gp">=&gt; </span>Located unlocked Gemfile <span class="k">for </span>development
@@ -197,7 +272,8 @@ create  db/migrate/002_create_posts.rb
 <span class="o">==</span>  CreatePosts: migrated <span class="o">(</span>0.0016s<span class="o">)</span> <span class="o">===========================================</span>
 </code></pre>
 
-<p>This creates the post model. Next, let’s create the controller to allow the basic viewing functionality.</p>
+<p>This creates the post model. Next, let’s create the controller to allow the
+basic viewing functionality.</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span>padrino g controller posts get:index get:show
 <span class="gp">=&gt; </span>Located unlocked Gemfile <span class="k">for </span>development
@@ -207,7 +283,8 @@ create  app/views/posts
 create  <span class="nb">test</span>/controllers/posts_controller_test.rb
 </code></pre>
 
-<p>We’ll want to attached some of the standard routes (:index and :show) to the controller.</p>
+<p>We’ll want to attached some of the standard routes (:index and :show) to the
+controller.</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/controllers/posts.rb</span>
 <span class="no">SampleBlog</span><span class="o">::</span><span class="no">App</span><span class="p">.</span><span class="nf">controllers</span> <span class="ss">:posts</span> <span class="k">do</span>
@@ -223,9 +300,14 @@ create  <span class="nb">test</span>/controllers/posts_controller_test.rb
 <span class="k">end</span>
 </code></pre>
 
-<p>This controller is defining routes that can be accessed via our application. The “http method” <code>get</code> starts off the declaration followed by a symbol representing the “action”. Inside a block we store an instance variable fetching the necessary objects and then render a view template. This should look familiar to those coming from Rails or Sinatra.</p>
+<p>This controller is defining routes that can be accessed via our application. The
+“http method” <code>get</code> starts off the declaration followed by a symbol representing
+the “action”. Inside a block we store an instance variable fetching the
+necessary objects and then render a view template. This should look familiar to
+those coming from Rails or Sinatra.</p>
 
-<p>Next, we’ll want to create the views for the two controller actions we defined: <code>index</code> and <code>show</code>.</p>
+<p>Next, we’ll want to create the views for the two controller actions we defined:
+<code>index</code> and <code>show</code>.</p>
 
 <pre class="highlight haml"><code><span class="c">-# app/views/posts/index.haml
 </span><span class="p">-</span> <span class="vi">@title</span> <span class="o">=</span> <span class="s2">"Welcome"</span>
@@ -248,7 +330,8 @@ create  <span class="nb">test</span>/controllers/posts_controller_test.rb
 <span class="nt">%p</span><span class="p">=</span> <span class="n">link_to</span> <span class="s1">'View all posts'</span><span class="p">,</span> <span class="n">url_for</span><span class="p">(</span><span class="ss">:posts</span><span class="p">,</span> <span class="ss">:index</span><span class="p">)</span>
 </code></pre>
 
-<p>Padrino Admin makes it easy to create, edit and delete records automatically. To manage posts using Padrino Admin, run this command.</p>
+<p>Padrino Admin makes it easy to create, edit and delete records automatically. To
+manage posts using Padrino Admin, run this command.</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span>padrino g admin_page post
 <span class="gp">=&gt; </span>Located unlocked Gemfile <span class="k">for </span>development
@@ -260,19 +343,28 @@ create  admin/views/posts/new.haml
 inject  admin/app.rb
 </code></pre>
 
-<p>Let’s make sure the server is running (<code>padrino start</code>) and give this admin interface a try.</p>
+<p>Let’s make sure the server is running (<code>padrino start</code>) and give this admin
+interface a try.</p>
 
-<p>Visit <a href="http://localhost:3000/admin">http://localhost:3000/admin</a> and login using the credentials you had setup during the seed.</p>
+<p>Visit <a href="http://localhost:3000/admin">http://localhost:3000/admin</a> and login using the credentials you had
+setup during the seed.</p>
 
-<p>There should now be two tabs, one for Posts and the other, Accounts. Click on Posts.</p>
+<p>There should now be two tabs, one for Posts and the other, Accounts. Click on
+Posts.</p>
 
-<p>Padrino Admin allows you to easily create new records by clicking “New”. It has a form all ready complete with the fields you had generated prior in the creation of the Post model.</p>
+<p>Padrino Admin allows you to easily create new records by clicking “New”. It has
+a form all ready complete with the fields you had generated prior in the
+creation of the Post model.</p>
 
-<p><strong>Note:</strong> make sure to use <code>padrino g admin_page</code> <strong>after</strong> the creation of your model and their migration.</p>
+<p><strong>Note:</strong> make sure to use <code>padrino g admin_page</code> <strong>after</strong> the creation of your
+  model and their migration.</p>
 
-<p>Now that you have added a few posts through the admin interface, check out <a href="http://localhost:3000/posts">http://localhost:3000/posts</a> and notice that the posts you created now show up in the “index” action!</p>
+<p>Now that you have added a few posts through the admin interface, check out
+<a href="http://localhost:3000/posts">http://localhost:3000/posts</a> and notice that the posts you created now show up
+in the “index” action!</p>
 
-<p>You can see all the routes that we now have defined using the <code>padrino rake routes</code> command:</p>
+<p>You can see all the routes that we now have defined using the <code>padrino rake
+routes</code> command:</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span>padrino rake routes
     URL                 REQUEST  PATH
@@ -287,14 +379,17 @@ inject  admin/app.rb
 
 <h2 id="attaching-accounts-to-posts">Attaching Accounts to Posts</h2>
 
-<p>So far, a post does not have a user associated as the author. Suppose that now we want to let every post have an author. Let’s revisit our post model. We’ll start by adding a new migration to attach an Account to a Post.</p>
+<p>So far, a post does not have a user associated as the author. Suppose that now
+we want to let every post have an author. Let’s revisit our post model. We’ll
+start by adding a new migration to attach an Account to a Post.</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span>padrino g migration AddAccountToPost account_id:integer
 <span class="gp">=&gt; </span>Located unlocked Gemfile <span class="k">for </span>development
 create  db/migrate/003_add_account_to_post.rb
 </code></pre>
 
-<p>This creates a new migration with the desired field attaching the account_id to the post.</p>
+<p>This creates a new migration with the desired field attaching the account_id to
+the post.</p>
 
 <p>Let’s modify the migration file to assign a user to all existing posts:</p>
 
@@ -312,7 +407,8 @@ create  db/migrate/003_add_account_to_post.rb
 <span class="k">end</span>
 </code></pre>
 
-<p>Now, we’ll return to the Post Model to setup the <code>account</code> association and add a few validations.</p>
+<p>Now, we’ll return to the Post Model to setup the <code>account</code> association and add a
+few validations.</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/models/post.rb</span>
 <span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
@@ -331,9 +427,12 @@ create  db/migrate/003_add_account_to_post.rb
 <span class="gp">=&gt; </span>Executing Rake ar:migrate ...
 </code></pre>
 
-<p>Our Post now has the appropriate associations and validations. We’ll need to go inside the generated Padrino Admin and make some changes to include the account with the post.</p>
+<p>Our Post now has the appropriate associations and validations. We’ll need to go
+inside the generated Padrino Admin and make some changes to include the account
+with the post.</p>
 
-<p>Head on over to <code>admin/controllers/posts.rb</code>. We’re going to include the <code>current_account</code> to the creation of a new Post.</p>
+<p>Head on over to <code>admin/controllers/posts.rb</code>. We’re going to include the
+<code>current_account</code> to the creation of a new Post.</p>
 
 <pre class="highlight ruby"><code><span class="c1"># admin/controllers/posts.rb</span>
 <span class="no">Admin</span><span class="p">.</span><span class="nf">controllers</span> <span class="ss">:posts</span> <span class="k">do</span>
@@ -355,7 +454,8 @@ create  db/migrate/003_add_account_to_post.rb
 <span class="k">end</span>
 </code></pre>
 
-<p>We’ll also update the post view to show the changes that we made and display the author:</p>
+<p>We’ll also update the post view to show the changes that we made and display the
+author:</p>
 
 <pre class="highlight haml"><code><span class="c">-# app/views/posts/show.haml
 </span><span class="p">-</span> <span class="vi">@title</span> <span class="o">=</span> <span class="vi">@post</span><span class="p">.</span><span class="nf">title</span>
@@ -377,17 +477,27 @@ create  db/migrate/003_add_account_to_post.rb
     <span class="nc">.author</span> Posted by <span class="si">#{</span><span class="n">post</span><span class="p">.</span><span class="nf">account</span><span class="p">.</span><span class="nf">email</span><span class="si">}</span>
 </code></pre>
 
-<p>Now, lets add another user. Revisit <a href="http://localhost:3000/admin">http://localhost:3000/admin</a> and click on the Account tab. Now create a new Account record. Once you have a new account, try logging into it and then adding one more post in the admin interface. There you have it, multiple users and posts!</p>
+<p>Now, lets add another user. Revisit <a href="http://localhost:3000/admin">http://localhost:3000/admin</a> and click on
+the Account tab. Now create a new Account record. Once you have a new account,
+try logging into it and then adding one more post in the admin interface. There
+you have it, multiple users and posts!</p>
 
-<p>See the effects of our changes by visiting <a href="http://localhost:3000/posts">http://localhost:3000/posts</a> to see our newly created posts linked to the author that wrote them.</p>
+<p>See the effects of our changes by visiting <a href="http://localhost:3000/posts">http://localhost:3000/posts</a> to see
+our newly created posts linked to the author that wrote them.</p>
 
 <hr />
 
 <h2 id="site-layout">Site Layout</h2>
 
-<p>Now that the application has been properly configured and the server has been started, let’s create a few basic styles and define a layout to prepare the application for continued development.</p>
+<p>Now that the application has been properly configured and the server has been
+started, let’s create a few basic styles and define a layout to prepare the
+application for continued development.</p>
 
-<p>First, let us create a layout for our application to use. A layout is a file that acts as a container for the content templates yielded by each route. The layout should be used to create a consistent structure between each page of the application. To create a layout, simply add a file to the <code>app/views/layouts</code> directory:</p>
+<p>First, let us create a layout for our application to use. A layout is a file
+that acts as a container for the content templates yielded by each route. The
+layout should be used to create a consistent structure between each page of the
+application. To create a layout, simply add a file to the <code>app/views/layouts</code>
+directory:</p>
 
 <pre class="highlight haml"><code><span class="c">-# app/views/layouts/application.haml
 </span><span class="nn">!!! Strict
@@ -429,19 +539,38 @@ create  db/migrate/003_add_account_to_post.rb
       Copyright (c) 2009-2010 Padrino
 </code></pre>
 
-<p>This layout creates a basic structure for the blog and requires the necessary stylesheets and javascript files for controlling the behavior and presentation of our site. The layout also includes some dummy elements such as a fake search and stubs for list items left as an exercise for the reader.</p>
+<p>This layout creates a basic structure for the blog and requires the necessary
+stylesheets and javascript files for controlling the behavior and presentation
+of our site. The layout also includes some dummy elements such as a fake search
+and stubs for list items left as an exercise for the reader.</p>
 
-<p>Next, we simply need to setup the style sheets. There are two we will use for this demo. The first is a generic CSS reset by Eric Meyers. The <a href="http://github.com/padrino/sample_blog/blob/master/public/stylesheets/reset.css">full reset style sheet</a> can be found in the <a href="http://github.com/padrino/sample_blog/blob/master/public/stylesheets/reset.css">sample blog repository</a> and should be put into <code>public/stylesheets/reset.css</code>.</p>
+<p>Next, we simply need to setup the style sheets. There are two we will use for
+this demo. The first is a generic CSS reset by Eric Meyers. The
+<a href="http://github.com/padrino/sample_blog/blob/master/public/stylesheets/reset.css">full reset style sheet</a>
+can be found in the
+<a href="http://github.com/padrino/sample_blog/blob/master/public/stylesheets/reset.css">sample blog repository</a>
+and should be put into <code>public/stylesheets/reset.css</code>.</p>
 
-<p>The second style sheet is the application style sheet to give our blog a better look and feel. The <a href="http://github.com/padrino/sample_blog/blob/master/app/stylesheets/application.sass">full contents of the style sheet</a> can be found in the <a href="http://github.com/padrino/sample_blog/blob/master/app/stylesheets/application.sass">sample blog repository</a> and should be put into <code>app/stylesheets/application.sass</code>.</p>
+<p>The second style sheet is the application style sheet to give our blog a better
+look and feel. The
+<a href="http://github.com/padrino/sample_blog/blob/master/app/stylesheets/application.sass">full contents of the style sheet</a>
+can be found in the
+<a href="http://github.com/padrino/sample_blog/blob/master/app/stylesheets/application.sass">sample blog repository</a>
+and should be put into <code>app/stylesheets/application.sass</code>.</p>
 
-<p>With the layout and these two stylesheets in place, the blog will now have a much improved look and feel! See the new style by visiting <a href="http://localhost:3000/posts">http://localhost:3000/posts</a>.</p>
+<p>With the layout and these two stylesheets in place, the blog will now have a
+much improved look and feel! See the new style by visiting
+<a href="http://localhost:3000/posts">http://localhost:3000/posts</a>.</p>
 
 <hr />
 
 <h2 id="generating-rss-feed-for-posts">Generating RSS Feed for Posts</h2>
 
-<p>Finally, before the application is deployed, let’s set up RSS and Atom feeds for our new blog so people can subscribe to our posts. For the feeds, we’re going to head back to the posts controller and make a few changes by appending a <code>provides</code> option to our <code>index</code> block. This command below instructs the route that it should respond to HTML, RSS and Atom formats.</p>
+<p>Finally, before the application is deployed, let’s set up RSS and Atom feeds for
+our new blog so people can subscribe to our posts. For the feeds, we’re going to
+head back to the posts controller and make a few changes by appending a
+<code>provides</code> option to our <code>index</code> block. This command below instructs the route
+that it should respond to HTML, RSS and Atom formats.</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/controllers/posts.rb</span>
 <span class="no">SampleBlog</span><span class="o">::</span><span class="no">App</span><span class="p">.</span><span class="nf">controllers</span> <span class="ss">:posts</span> <span class="k">do</span>
@@ -454,9 +583,11 @@ create  db/migrate/003_add_account_to_post.rb
 <span class="k">end</span>
 </code></pre>
 
-<p>Note that this route also instructs the rendering engine to avoid rendering the layout when using RSS or atom formats.</p>
+<p>Note that this route also instructs the rendering engine to avoid rendering the
+layout when using RSS or atom formats.</p>
 
-<p>Back in the <code>index.haml</code> file, we’ll use the auto_discovery_link_tag helpers to generate the RSS feed using builder.</p>
+<p>Back in the <code>index.haml</code> file, we’ll use the auto_discovery_link_tag helpers
+to generate the RSS feed using builder.</p>
 
 <pre class="highlight haml"><code><span class="c">-# app/views/posts/index.haml
 </span><span class="p">-</span> <span class="vi">@title</span> <span class="o">=</span> <span class="s2">"Welcome"</span>
@@ -514,24 +645,36 @@ create  db/migrate/003_add_account_to_post.rb
 <span class="k">end</span>
 </code></pre>
 
-<p>Let’s check out our changes. View the available feeds at <a href="http://localhost:3000/posts">http://localhost:3000/posts</a> . You now have rss and atom feeds available for your blog!</p>
+<p>Let’s check out our changes. View the available feeds at
+<a href="http://localhost:3000/posts">http://localhost:3000/posts</a> . You now have rss and atom feeds available for
+your blog!</p>
 
 <hr />
 
 <h2 id="deploying-our-application">Deploying our Application</h2>
 
-<p>Finally, our basic blog has been built and we should deploy our application so the world can check it out! The easiest way to do this quickly and for free is to use a service such as Heroku. Let’s deploy our application to Heroku right now.</p>
+<p>Finally, our basic blog has been built and we should deploy our application so
+the world can check it out! The easiest way to do this quickly and for free is
+to use a service such as Heroku. Let’s deploy our application to Heroku right
+now.</p>
 
-<p>The best way to get started using Heroku is by following the <a href="http://docs.heroku.com/quickstart">Heroku Quickstart Guide</a> . As explained in the guide, be sure to have Git installed and <a href="http://heroku.com/signup">setup a Heroku account</a> as well as <a href="http://docs.heroku.com/heroku-command">install the Heroku gem</a> before continuing this tutorial.</p>
+<p>The best way to get started using Heroku is by following the
+<a href="http://docs.heroku.com/quickstart">Heroku Quickstart Guide</a> . As explained in
+the guide, be sure to have Git installed and
+<a href="http://heroku.com/signup">setup a Heroku account</a> as well as
+<a href="http://docs.heroku.com/heroku-command">install the Heroku gem</a> before
+continuing this tutorial.</p>
 
-<p>Now, to deploy to Heroku, the application needs to be set up as a Git repository:</p>
+<p>Now, to deploy to Heroku, the application needs to be set up as a Git
+repository:</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span>git init
 <span class="gp">$ </span>git add .
 <span class="gp">$ </span>git commit -m <span class="s2">"initial commit for app"</span>
 </code></pre>
 
-<p>This initializes the Git repository, adds all the contents and commit them to the repo. Next, the application must be set up on Heroku.</p>
+<p>This initializes the Git repository, adds all the contents and commit them to
+the repo. Next, the application must be set up on Heroku.</p>
 
 <pre class="highlight shell"><code>sample-blog <span class="nv">$ </span>heroku create --stack bamboo-ree-1.8.7
 sample-blog <span class="nv">$ </span>git push heroku master
@@ -541,7 +684,8 @@ sample-blog <span class="nv">$ </span>git push heroku master
 
 <p>Run <code>heroku open</code> to open your site in your default web browser.</p>
 
-<p>Currently Padrino defaults to <strong>SQLite</strong> but Heroku only supports <strong>PostgreSQL</strong>, so we’ll need to add <code>pg</code> as a dependency.</p>
+<p>Currently Padrino defaults to <strong>SQLite</strong> but Heroku only supports
+<strong>PostgreSQL</strong>, so we’ll need to add <code>pg</code> as a dependency.</p>
 
 <pre class="highlight ruby"><code><span class="c1"># Gemfile</span>
 <span class="n">group</span> <span class="ss">:production</span> <span class="k">do</span>
@@ -549,7 +693,8 @@ sample-blog <span class="nv">$ </span>git push heroku master
 <span class="k">end</span>
 </code></pre>
 
-<p>Now you can run the following on your local machine to avoid the installation of the <code>pg</code> gem:</p>
+<p>Now you can run the following on your local machine to avoid the installation of
+the <code>pg</code> gem:</p>
 
 <pre class="highlight shell"><code>sample-blog <span class="nv">$ </span>bundle install --without production
 </code></pre>
@@ -569,7 +714,8 @@ sample-blog <span class="nv">$ </span>git push heroku master
 <span class="p">}</span>
 </code></pre>
 
-<p>Now we need to create a Rakefile since we don’t have shell access to <code>padrino rake</code>. Simply use the handy Rakefile generator:</p>
+<p>Now we need to create a Rakefile since we don’t have shell access to <code>padrino
+rake</code>. Simply use the handy Rakefile generator:</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span>padrino rake gen
 </code></pre>

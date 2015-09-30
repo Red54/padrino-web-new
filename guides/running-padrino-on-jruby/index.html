@@ -6,7 +6,8 @@
 
 <h2 id="install-on-jruby">Install on JRuby</h2>
 
-<p>You can easily install Padrino on jruby when you use <a href="https://rvm.beginrescueend.com/">rvm</a> :</p>
+<p>You can easily install Padrino on jruby when you use
+<a href="https://rvm.beginrescueend.com/">rvm</a> :</p>
 
 <pre class="highlight shell"><code><span class="gp">$ </span>rvm use --create jruby-1.6.4@padrino
 <span class="gp">$ </span>gem install padrino
@@ -76,9 +77,12 @@ padrino start
 <pre class="highlight shell"><code>warble config
 </code></pre>
 
-<p>Edit <code>config/warble.rb</code> if you want to apply some customizations. You can access <a href="https://github.com/nicksieger/jruby-rack/#readme">JRuby-Rack official README</a> and <a href="http://caldersphere.rubyforge.org/warbler/">Warbler rdoc</a>.</p>
+<p>Edit <code>config/warble.rb</code> if you want to apply some customizations. You can access
+<a href="https://github.com/nicksieger/jruby-rack/#readme">JRuby-Rack official README</a>
+and <a href="http://caldersphere.rubyforge.org/warbler/">Warbler rdoc</a>.</p>
 
-<p>For example, if you want to deploy the app to server root directory, just add to <code>config/warble.rb</code>:</p>
+<p>For example, if you want to deploy the app to server root directory, just add to
+<code>config/warble.rb</code>:</p>
 
 <pre class="highlight ruby"><code><span class="n">config</span><span class="p">.</span><span class="nf">jar_name</span> <span class="o">=</span> <span class="s2">"ROOT"</span>
 </code></pre>
@@ -93,7 +97,9 @@ padrino start
 <pre class="highlight shell"><code>warble war
 </code></pre>
 
-<p>You would get <code>jrack-test.war</code> (the same name as your project diresctory name), and you can deploy this war file to tomcat! I tested on tomcat 6.0.20, and it works well with quick response.</p>
+<p>You would get <code>jrack-test.war</code> (the same name as your project diresctory name),
+and you can deploy this war file to tomcat! I tested on tomcat 6.0.20, and it
+works well with quick response.</p>
 </div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br />
 Hosting by <a href="https://pages.github.com">GitHub Pages</a></p>
 </footer><script src="../../assets/javascripts/all-c2e0cecd.js"></script></div></body></html>

@@ -49,7 +49,8 @@
 
 <h2 id="how-to-localize-your-app">How to localize your app</h2>
 
-<p>The first thing that you need to do is to set your locale by appending it to boot.rb:</p>
+<p>The first thing that you need to do is to set your locale by appending it to
+boot.rb:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># config/boot.rb</span>
 <span class="no">Padrino</span><span class="p">.</span><span class="nf">before_load</span> <span class="k">do</span>
@@ -57,7 +58,9 @@
 <span class="k">end</span>
 </code></pre>
 
-<p>By default Padrino will search for all <code>.yml</code> or <code>.rb</code> files located in <code>app/locale</code>; as an example try to add the following to your <code>app/locale/de.yml</code>:</p>
+<p>By default Padrino will search for all <code>.yml</code> or <code>.rb</code> files located in
+<code>app/locale</code>; as an example try to add the following to your
+<code>app/locale/de.yml</code>:</p>
 
 <p>in your view or controller or wherever you prefer add:</p>
 
@@ -73,7 +76,8 @@
 
 <h2 id="translate-models-activerecord">Translate Models (ActiveRecord)</h2>
 
-<p>Translating models via Padrino requires few seconds thanks to a builtin rake task!</p>
+<p>Translating models via Padrino requires few seconds thanks to a builtin rake
+task!</p>
 
 <p>Assuming the following Account model:</p>
 
@@ -100,11 +104,14 @@
 <pre class="highlight shell"><code>padrino rake ar:translate
 </code></pre>
 
-<p>a new it.yml file will be created into <code>/app/locale/models/account/it.yml</code> with the following:</p>
+<p>a new it.yml file will be created into <code>/app/locale/models/account/it.yml</code> with
+the following:</p>
 
-<p>you can now edit your generated <code>it.yml</code> file to reflect your current locale (Italian):</p>
+<p>you can now edit your generated <code>it.yml</code> file to reflect your current locale
+(Italian):</p>
 
-<p>padrino-admin will now use your newly created yml file for translating the column names of grids, forms, error_messages etc…</p>
+<p>padrino-admin will now use your newly created yml file for translating the
+column names of grids, forms, error_messages etc…</p>
 
 <hr />
 

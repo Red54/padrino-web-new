@@ -1,6 +1,10 @@
 <!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - Guides: Controllers</title><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../assets/stylesheets/style-75d468d0.css" rel="stylesheet" /></head><body class="guides guides_controllers guides_controllers_index"><div class="grid"><header class="header"><h1 class="header__name"><a class="padrino-name" href="/">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a class="navigation__link" href="/">Overview</a></li><li class="navigation__item"><a class="navigation__link--is-active" href="/guides/">Guides</a></li><li class="navigation__item"><a class="navigation__link" href="http://www.rubydoc.info/github/padrino/padrino-framework">API</a></li><li class="navigation__item"><a class="navigation__link" href="/contribute/">Contribute</a></li><li class="navigation__item"><a class="navigation__link" href="/blog/">Blog</a></li><li class="navigation__item"><a class="navigation__link" href="https://github.com/padrino/padrino-framework"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Guides</h4><ul class="sidebar__items"><li class="sidebar__item"><a class="sidebar__link--is-active" href="/guides/">Home</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/getting-started/">Getting Started</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/installation/">Installation</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/basic-projects/">Basic Projects</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/generators/">Generators</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/development-commands/">Development Commands</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/mounting-applications/">Mounting Applications</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/blog-tutorial/">Blog Tutorial</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/application-helpers/">Application Helpers</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/padrino-admin/">Padrino Admin</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/padrino-mailer/">Padrino Mailer</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/padrino-cache/">Padrino Cache</a></li><li class="sidebar__item"><a class="sidebar__link--is-active" href="/guides/controllers/">Controllers</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/localization/">Localization</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/extensions/">Extensions</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/rake-tasks/">Rake Tasks</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/the-bleeding-edge/">The Bleeding Edge</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/adding-new-components/">Adding New Components</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/standalone-usage-in-sinatra/">Standalone Usage in Sinatra</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/running-padrino-on-jruby/">Running Padrino on JRuby</a></li></ul></div></div><div class="page__content"><div class="content"><h1 id="controllers">Controllers</h1>
 
-<p>Suppose we wanted to add routes to our Padrino application, and we want to organize a set of related routes within a more structured grouping. Padrino has the notion of a ‘controller’ block which can group related routes and make URL generation much easier. Simply add a <code>controllers.rb</code> file or <code>app/controllers</code> folder and create a file as such:</p>
+<p>Suppose we wanted to add routes to our Padrino application, and we want to
+organize a set of related routes within a more structured grouping. Padrino has
+the notion of a ‘controller’ block which can group related routes and make URL
+generation much easier. Simply add a <code>controllers.rb</code> file or <code>app/controllers</code>
+folder and create a file as such:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/controllers/main.rb or controllers.rb</span>
 <span class="no">SimpleApp</span><span class="p">.</span><span class="nf">controller</span> <span class="k">do</span>
@@ -16,17 +20,25 @@
 <span class="k">end</span>
 </code></pre>
 
-<p>In this case, the controller merely acts as a structured grouping mechanism to allow better organization of routes. Controllers actually have other benefits as well when used in conjunction with the enhanced Padrino routing system.</p>
+<p>In this case, the controller merely acts as a structured grouping mechanism to
+allow better organization of routes. Controllers actually have other benefits as
+well when used in conjunction with the enhanced Padrino routing system.</p>
 
 <hr />
 
 <h2 id="enhanced-routing">Enhanced Routing</h2>
 
-<p>Padrino provides advanced routing definition support to make routes and URL generation much easier. This routing system supports named route aliases and easy access to url paths. The benefits of this is that instead of having to hard-code route URLs into every area of your application, now we can just define the URLs in a single spot and then attach an alias which can be used to refer to the URL throughout the application.</p>
+<p>Padrino provides advanced routing definition support to make routes and URL
+generation much easier. This routing system supports named route aliases and
+easy access to url paths. The benefits of this is that instead of having to
+hard-code route URLs into every area of your application, now we can just define
+the URLs in a single spot and then attach an alias which can be used to refer to
+the URL throughout the application.</p>
 
 <h3 id="basic-routing-aliases">Basic Routing Aliases</h3>
 
-<p>The routing system supports named aliases by using symbols instead of strings for your routes:</p>
+<p>The routing system supports named aliases by using symbols instead of strings
+for your routes:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/app.rb</span>
 <span class="k">class</span> <span class="nc">Demoer</span> <span class="o">&lt;</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Application</span>
@@ -52,7 +64,8 @@
 
 <h3 id="inline-route-alias-definitions">Inline Route Alias Definitions</h3>
 
-<p>The routing plugin also supports inline route definitions in which the explicit URL and the named alias are both defined:</p>
+<p>The routing plugin also supports inline route definitions in which the explicit
+URL and the named alias are both defined:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/main.rb</span>
 <span class="k">class</span> <span class="nc">Demoer</span> <span class="o">&lt;</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Application</span>
@@ -67,7 +80,8 @@
 <span class="k">end</span>
 </code></pre>
 
-<p>Routes defined inline this way can be accessed and treated the same way as traditional named aliases:</p>
+<p>Routes defined inline this way can be accessed and treated the same way as
+traditional named aliases:</p>
 
 <pre class="highlight haml"><code># app/views/example.haml
 <span class="p">=</span> <span class="n">link_to</span> <span class="s2">"Index Page"</span><span class="p">,</span> <span class="n">url_for</span><span class="p">(</span><span class="ss">:index</span><span class="p">)</span>
@@ -76,7 +90,8 @@
 
 <h3 id="namespaced-route-aliases">Namespaced Route Aliases</h3>
 
-<p>There is also support for namespaced routes which are organized into a named controller group:</p>
+<p>There is also support for namespaced routes which are organized into a named
+controller group:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/controllers/admin.rb</span>
 <span class="no">SimpleApp</span><span class="p">.</span><span class="nf">controllers</span> <span class="ss">:admin</span> <span class="k">do</span>
@@ -99,7 +114,8 @@
 <span class="p">=</span> <span class="n">link_to</span> <span class="s1">'admin index page'</span><span class="p">,</span> <span class="n">url_for</span><span class="p">(</span><span class="ss">:admin</span><span class="p">,</span> <span class="ss">:show</span><span class="p">,</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="mi">25</span><span class="p">)</span>
 </code></pre>
 
-<p>If you prefer explicit URLs to named aliases, that is also supported within a specified controller group:</p>
+<p>If you prefer explicit URLs to named aliases, that is also supported within a
+specified controller group:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/controllers/example.rb</span>
 <span class="no">SimpleApp</span><span class="p">.</span><span class="nf">controllers</span> <span class="s2">"/admin"</span> <span class="k">do</span>
@@ -139,7 +155,8 @@
 
 <h3 id="nested-routes">Nested Routes</h3>
 
-<p>You can specify parent resources in padrino with the :parent option on the controller:</p>
+<p>You can specify parent resources in padrino with the :parent option on the
+controller:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/controllers/example.rb</span>
 <span class="no">SimpleApp</span><span class="p">.</span><span class="nf">controllers</span> <span class="ss">:product</span><span class="p">,</span> <span class="ss">:parent</span> <span class="o">=&gt;</span> <span class="ss">:user</span> <span class="k">do</span>
@@ -154,7 +171,8 @@
 <span class="k">end</span>
 </code></pre>
 
-<p>If need be the parent resource can also be specified on inline routes in addition:</p>
+<p>If need be the parent resource can also be specified on inline routes in
+addition:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/controllers/example.rb</span>
 <span class="no">SimpleApp</span><span class="p">.</span><span class="nf">controllers</span> <span class="ss">:product</span><span class="p">,</span> <span class="ss">:parent</span> <span class="o">=&gt;</span> <span class="ss">:user</span> <span class="k">do</span>
@@ -169,7 +187,8 @@
 
 <h2 id="layouts">Layouts</h2>
 
-<p>With Padrino, a custom layout can be specified or the layout can be disabled altogether:</p>
+<p>With Padrino, a custom layout can be specified or the layout can be disabled
+altogether:</p>
 
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">SimpleApp</span> <span class="o">&lt;</span> <span class="no">Padrino</span><span class="o">::</span><span class="no">Application</span>
   <span class="c1"># Disable layouts</span>
@@ -180,7 +199,8 @@
 <span class="k">end</span>
 </code></pre>
 
-<p>Note that layouts are <em>scoped by controller</em>, so you can apply different layouts to different controllers:</p>
+<p>Note that layouts are <em>scoped by controller</em>, so you can apply different layouts
+to different controllers:</p>
 
 <pre class="highlight ruby"><code><span class="no">SimpleApp</span><span class="p">.</span><span class="nf">controllers</span> <span class="ss">:posts</span> <span class="k">do</span>
   <span class="c1"># Apply a layout for routes in this controller</span>
@@ -214,7 +234,8 @@
 
 <h2 id="provides-formats">Provides Formats</h2>
 
-<p>With Padrino you can simply declare which formats a request will respond to by using the <code>provides</code> route configuration:</p>
+<p>With Padrino you can simply declare which formats a request will respond to by
+using the <code>provides</code> route configuration:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/controllers/example.rb</span>
 <span class="no">SimpleApp</span><span class="p">.</span><span class="nf">controllers</span> <span class="ss">:admin</span> <span class="k">do</span>
@@ -243,21 +264,27 @@
 
 <h2 id="route-filters">Route Filters</h2>
 
-<p>Before filters are evaluated before each request within the context of the request and can modify the request and response. Instance variables set in filters are accessible by routes and templates:</p>
+<p>Before filters are evaluated before each request within the context of the
+request and can modify the request and response. Instance variables set in
+filters are accessible by routes and templates:</p>
 
 <pre class="highlight ruby"><code><span class="n">before</span> <span class="k">do</span>
   <span class="vi">@note</span> <span class="o">=</span> <span class="s1">'Hi!'</span>
 <span class="k">end</span>
 </code></pre>
 
-<p>After filter are evaluated after each request within the context of the request and can also modify the request and response. Instance variables set in before filters and routes are accessible by after filters:</p>
+<p>After filter are evaluated after each request within the context of the request
+and can also modify the request and response. Instance variables set in before
+filters and routes are accessible by after filters:</p>
 
 <pre class="highlight ruby"><code><span class="n">after</span> <span class="k">do</span>
   <span class="nb">puts</span> <span class="vi">@note</span>
 <span class="k">end</span>
 </code></pre>
 
-<p>This is now standard in Sinatra but Padrino adds support for filters being <em>scoped by controller</em> which means that unlike Sinatra in which a filter is global, in Padrino you can run different filters for each controller:</p>
+<p>This is now standard in Sinatra but Padrino adds support for filters being
+<em>scoped by controller</em> which means that unlike Sinatra in which a filter is
+global, in Padrino you can run different filters for each controller:</p>
 
 <pre class="highlight ruby"><code><span class="no">SimpleApp</span><span class="p">.</span><span class="nf">controllers</span> <span class="ss">:posts</span> <span class="k">do</span>
   <span class="n">before</span> <span class="p">{</span> <span class="vi">@foo</span> <span class="o">=</span> <span class="s2">"bar"</span> <span class="p">}</span>
@@ -270,7 +297,9 @@
 <span class="k">end</span>
 </code></pre>
 
-<p>This allows for more fine-grained filters and prevents the need to have unnecessary filters running on every route. As of Padrino 0.10.0, there is also a much more powerful route selection system that has been setup:</p>
+<p>This allows for more fine-grained filters and prevents the need to have
+unnecessary filters running on every route. As of Padrino 0.10.0, there is also
+a much more powerful route selection system that has been setup:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/controllers/example_controller.rb</span>
 <span class="no">DemoApp</span><span class="p">.</span><span class="nf">controller</span> <span class="ss">:example</span> <span class="k">do</span>
@@ -295,13 +324,17 @@
 <span class="k">end</span>
 </code></pre>
 
-<p>This gives developers a lot more flexibility when running filters and enables much more selective execution in a convenient way.</p>
+<p>This gives developers a lot more flexibility when running filters and enables
+much more selective execution in a convenient way.</p>
 
 <hr />
 
 <h2 id="prioritized-routes">Prioritized Routes</h2>
 
-<p>Padrino (0.10.0+) has added support for respecting route order in controllers and also allows the developer to specify certain routes as less or more “important” then others in the route recognition order. Consider two controllers, the first with a “catch-all” route:</p>
+<p>Padrino (0.10.0+) has added support for respecting route order in controllers
+and also allows the developer to specify certain routes as less or more
+“important” then others in the route recognition order. Consider two
+controllers, the first with a “catch-all” route:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/controllers/pages.rb</span>
 <span class="no">MyApp</span><span class="p">.</span><span class="nf">controller</span> <span class="ss">:pages</span> <span class="k">do</span>
@@ -318,7 +351,9 @@
 <span class="k">end</span>
 </code></pre>
 
-<p>This wouldn’t work by default because the second “/projects” endpoint would be eclipsed by the “/*page” catch-all route and as such <code>projects</code> would not be accessible. To solve this, you can do the following:</p>
+<p>This wouldn’t work by default because the second “/projects” endpoint would be
+eclipsed by the “/*page” catch-all route and as such <code>projects</code> would not be
+accessible. To solve this, you can do the following:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/controllers/pages.rb</span>
 <span class="no">MyApp</span><span class="p">.</span><span class="nf">controller</span> <span class="ss">:pages</span> <span class="k">do</span>
@@ -336,13 +371,18 @@
 <span class="k">end</span>
 </code></pre>
 
-<p>When setting a routes priority to <code>:low</code>, this route is then recognized lower then all “high” and “normal” priority routes. You are encouraged in cases where there is ambiguity, to mark key routes as <code>:priority =&gt; :high</code> or catch-all routes as <code>:priority =&gt; :low</code> in order to guarantee expected behavior.</p>
+<p>When setting a routes priority to <code>:low</code>, this route is then recognized lower
+then all “high” and “normal” priority routes. You are encouraged in cases where
+there is ambiguity, to mark key routes as <code>:priority =&gt; :high</code> or catch-all
+routes as <code>:priority =&gt; :low</code> in order to guarantee expected behavior.</p>
 
 <hr />
 
 <h2 id="custom-conditions">Custom Conditions</h2>
 
-<p>Padrino has support for Sinatra’s custom route conditions as well. This allows you to apply custom condition checks to evaluate before a route is executed for an incoming request:</p>
+<p>Padrino has support for Sinatra’s custom route conditions as well. This allows
+you to apply custom condition checks to evaluate before a route is executed for
+an incoming request:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/controllers/example.rb</span>
 <span class="no">SimpleApp</span><span class="p">.</span><span class="nf">controllers</span> <span class="k">do</span>
@@ -388,27 +428,28 @@
 <span class="k">end</span>
 </code></pre>
 
-<p>This gives the developer considerable power to construct arbitrarily complex route conditions and apply them to any route within their application.</p>
+<p>This gives the developer considerable power to construct arbitrarily complex
+route conditions and apply them to any route within their application.</p>
 
 <hr />
 
 <h2 id="parsing-params-inside-a-requests-body">Parsing params inside a request's body</h2>
 
-<p>Padrino is often used for web service applications. One common need these applications have is to
-parse incoming messages, typically JSON or XML.
-This data will come as part of the request's body instead of the typical form data approach, i.e.
-url parameters or multipart form data.</p>
+<p>Padrino is often used for web service applications. One common need these
+applications have is to parse incoming messages, typically JSON or XML. This
+data will come as part of the request's body instead of the typical form data
+approach, i.e. url parameters or multipart form data.</p>
 
-<p>Here's when <a href="https://github.com/achiu/rack-parser">Rack::Parser</a> comes in handy since it will do
-just that. In <code>app/app.rb</code> or in <code>config.ru</code> just add:</p>
+<p>Here's when <a href="https://github.com/achiu/rack-parser">Rack::Parser</a> comes in handy
+since it will do just that. In <code>app/app.rb</code> or in <code>config.ru</code> just add:</p>
 
 <pre class="highlight ruby"><code><span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Parser</span><span class="p">,</span> <span class="ss">:content_types</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="s1">'application/json'</span>  <span class="o">=&gt;</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">body</span><span class="o">|</span> <span class="o">::</span><span class="no">MultiJson</span><span class="p">.</span><span class="nf">decode</span> <span class="n">body</span> <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
 
-<p>Now all of your controllers will have the request's body JSON object parse as inside <code>params</code> and
-you would be able to do something along the lines of:</p>
+<p>Now all of your controllers will have the request's body JSON object parse as
+inside <code>params</code> and you would be able to do something along the lines of:</p>
 
 <pre class="highlight ruby"><code><span class="n">post</span> <span class="s1">'/people'</span>
   <span class="n">order</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">name: </span><span class="n">params</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="p">)</span>
@@ -416,7 +457,8 @@ you would be able to do something along the lines of:</p>
 <span class="k">end</span>
 </code></pre>
 
-<p>Have a look at <a href="http://recipes.sinatrarb.com/p/middleware/rack_parser?#article">this great Sinatra recipe</a>
+<p>Have a look at
+<a href="http://recipes.sinatrarb.com/p/middleware/rack_parser?#article">this great Sinatra recipe</a>
 for a more detailed guide of how this middleware works.</p>
 
 <hr />
@@ -429,7 +471,9 @@ for a more detailed guide of how this middleware works.</p>
 <span class="n">render</span> <span class="s1">'account/index'</span>
 </code></pre>
 
-<p>It will choose the first one that is discovered, without regards to the type of rendering (erb, haml). Otherwise you can explicitly specify the type of rendering of your choice (erb, haml).</p>
+<p>It will choose the first one that is discovered, without regards to the type of
+rendering (erb, haml). Otherwise you can explicitly specify the type of
+rendering of your choice (erb, haml).</p>
 
 <pre class="highlight ruby"><code><span class="c1"># will use example.haml</span>
 <span class="n">render</span> <span class="ss">:haml</span><span class="p">,</span> <span class="s1">'account/index'</span>
@@ -445,15 +489,17 @@ for a more detailed guide of how this middleware works.</p>
 <span class="k">end</span>
 </code></pre>
 
-<p>When you visit the <code>:show</code> route with <code>I18n.locale == :ru</code> enabled, Padrino will first try to look for “admin/show.ru.js.*” if nothing matches that criteria, it will try “admin/show.ru.*” then “admin/show.js.*”. As a last resort, if he finds nothing matching your criteria, it will return “admin/show.erb” (or admin/show.haml)</p>
+<p>When you visit the <code>:show</code> route with <code>I18n.locale == :ru</code> enabled, Padrino will
+first try to look for “admin/show.ru.js.*” if nothing matches that criteria, it
+will try “admin/show.ru.*” then “admin/show.js.*”. As a last resort, if he
+finds nothing matching your criteria, it will return “admin/show.erb” (or
+admin/show.haml)</p>
 
 <hr />
 
 <h2 id="using-sessions">Using Sessions</h2>
 
 <p><em>Kindly borrowed from Sinatra's docs :)</em></p>
-
-<h3 id="using-sessions-1">Using Sessions</h3>
 
 <p>A session is used to keep state during requests. If activated, you have one
 session hash per user session:</p>
@@ -469,11 +515,11 @@ session hash per user session:</p>
 <span class="k">end</span>
 </code></pre>
 
-<p>Note that <code>enable :sessions</code> actually stores all data in a cookie. This
-might not always be what you want (storing lots of data will increase your
-traffic, for instance). You can use any Rack session middleware: in order to
-do so, do <strong>not</strong> call <code>enable :sessions</code>, but instead pull in your
-middleware of choice as you would any other middleware:</p>
+<p>Note that <code>enable :sessions</code> actually stores all data in a cookie. This might
+not always be what you want (storing lots of data will increase your traffic,
+for instance). You can use any Rack session middleware: in order to do so, do
+<strong>not</strong> call <code>enable :sessions</code>, but instead pull in your middleware of choice
+as you would any other middleware:</p>
 
 <pre class="highlight ruby"><code><span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Session</span><span class="o">::</span><span class="no">Pool</span><span class="p">,</span> <span class="ss">:expire_after</span> <span class="o">=&gt;</span> <span class="mi">2592000</span>
 
@@ -488,8 +534,8 @@ middleware of choice as you would any other middleware:</p>
 
 <p>To improve security, the session data in the cookie is signed with a session
 secret. A random secret is generated for you by Sinatra. However, since this
-secret will change with every start of your application, you might want to
-set the secret yourself, so all your application instances share it:</p>
+secret will change with every start of your application, you might want to set
+the secret yourself, so all your application instances share it:</p>
 
 <pre class="highlight ruby"><code><span class="n">set</span> <span class="ss">:session_secret</span><span class="p">,</span> <span class="s1">'super secret'</span>
 </code></pre>

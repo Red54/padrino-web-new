@@ -1,14 +1,22 @@
-<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - Application Helpers</title><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../assets/stylesheets/style-75d468d0.css" rel="stylesheet" /></head><body class="guides guides_application-helpers guides_application-helpers_index"><div class="grid"><header class="header"><h1 class="header__name"><a class="padrino-name" href="/">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a class="navigation__link" href="/">Overview</a></li><li class="navigation__item"><a class="navigation__link--is-active" href="/guides/">Guides</a></li><li class="navigation__item"><a class="navigation__link" href="http://www.rubydoc.info/github/padrino/padrino-framework">API</a></li><li class="navigation__item"><a class="navigation__link" href="/contribute/">Contribute</a></li><li class="navigation__item"><a class="navigation__link" href="/blog/">Blog</a></li><li class="navigation__item"><a class="navigation__link" href="https://github.com/padrino/padrino-framework"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Guides</h4><ul class="sidebar__items"><li class="sidebar__item"><a class="sidebar__link--is-active" href="/guides/">Home</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/getting-started/">Getting Started</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/installation/">Installation</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/basic-projects/">Basic Projects</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/generators/">Generators</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/development-commands/">Development Commands</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/mounting-applications/">Mounting Applications</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/blog-tutorial/">Blog Tutorial</a></li><li class="sidebar__item"><a class="sidebar__link--is-active" href="/guides/application-helpers/">Application Helpers</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/padrino-admin/">Padrino Admin</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/padrino-mailer/">Padrino Mailer</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/padrino-cache/">Padrino Cache</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/controllers/">Controllers</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/localization/">Localization</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/extensions/">Extensions</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/rake-tasks/">Rake Tasks</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/the-bleeding-edge/">The Bleeding Edge</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/adding-new-components/">Adding New Components</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/standalone-usage-in-sinatra/">Standalone Usage in Sinatra</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/running-padrino-on-jruby/">Running Padrino on JRuby</a></li></ul></div></div><div class="page__content"><div class="content"><h2 id="application-helpers">Application Helpers</h2>
+<!DOCTYPE html><html><head><meta charset="utf-8" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><meta content="initial-scale=1" name="viewport" /><title>Padrino - Application Helpers</title><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><link href="../../assets/stylesheets/style-75d468d0.css" rel="stylesheet" /></head><body class="guides guides_application-helpers guides_application-helpers_index"><div class="grid"><header class="header"><h1 class="header__name"><a class="padrino-name" href="/">Padrino</a></h1><div class="header__navigation"><nav class="navigation"><a class="navigation__toggler" href="#" id="navigation__toggler"><span class="navigation__toggler__icon fa fa-navicon"></span></a><ul class="navigation__items" id="navigation__items"><li class="navigation__item"><a class="navigation__link" href="/">Overview</a></li><li class="navigation__item"><a class="navigation__link--is-active" href="/guides/">Guides</a></li><li class="navigation__item"><a class="navigation__link" href="http://www.rubydoc.info/github/padrino/padrino-framework">API</a></li><li class="navigation__item"><a class="navigation__link" href="/contribute/">Contribute</a></li><li class="navigation__item"><a class="navigation__link" href="/blog/">Blog</a></li><li class="navigation__item"><a class="navigation__link" href="https://github.com/padrino/padrino-framework"><span class="button--slim">GitHub</span></a></li></ul></nav></div></header><div class="page"><div class="page__sidebar"><div class="sidebar"><h4 class="sidebar__header--first">Guides</h4><ul class="sidebar__items"><li class="sidebar__item"><a class="sidebar__link--is-active" href="/guides/">Home</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/getting-started/">Getting Started</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/installation/">Installation</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/basic-projects/">Basic Projects</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/generators/">Generators</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/development-commands/">Development Commands</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/mounting-applications/">Mounting Applications</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/blog-tutorial/">Blog Tutorial</a></li><li class="sidebar__item"><a class="sidebar__link--is-active" href="/guides/application-helpers/">Application Helpers</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/padrino-admin/">Padrino Admin</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/padrino-mailer/">Padrino Mailer</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/padrino-cache/">Padrino Cache</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/controllers/">Controllers</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/localization/">Localization</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/extensions/">Extensions</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/rake-tasks/">Rake Tasks</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/the-bleeding-edge/">The Bleeding Edge</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/adding-new-components/">Adding New Components</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/standalone-usage-in-sinatra/">Standalone Usage in Sinatra</a></li><li class="sidebar__item"><a class="sidebar__link" href="/guides/running-padrino-on-jruby/">Running Padrino on JRuby</a></li></ul></div></div><div class="page__content"><div class="content"><h1 id="application-helpers">Application Helpers</h1>
 
-<p>This component provides a great deal of view helpers related to html markup generation. There are helpers for generating tags, forms, links, images, and more. Most of the basic methods should be very familiar to anyone who has used rails view helpers.</p>
+<p>This component provides a great deal of view helpers related to html markup
+generation. There are helpers for generating tags, forms, links, images, and
+more. Most of the basic methods should be very familiar to anyone who has used
+rails view helpers.</p>
 
 <hr />
 
-<h3 id="output-helpers">Output Helpers</h3>
+<h2 id="output-helpers">Output Helpers</h2>
 
-<p>Output helpers are a collection of important methods for managing, capturing and displaying output in various ways and is used frequently to support higher-level helper functions. There are three output helpers worth mentioning: <code>content_for</code>, <code>capture_html</code>, and <code>concat_content</code></p>
+<p>Output helpers are a collection of important methods for managing, capturing and
+displaying output in various ways and is used frequently to support higher-level
+helper functions. There are three output helpers worth mentioning:
+<code>content_for</code>, <code>capture_html</code>, and <code>concat_content</code></p>
 
-<p>The <code>content_for</code> functionality supports capturing content and then rendering this into a different place such as within a layout. One such popular example is including assets onto the layout from a template:</p>
+<p>The <code>content_for</code> functionality supports capturing content and then rendering
+this into a different place such as within a layout. One such popular example is
+including assets onto the layout from a template:</p>
 
 <pre class="highlight erb"><code># app/views/site/index.erb
 ...
@@ -18,7 +26,8 @@
 ...
 </code></pre>
 
-<p>Added to a template, this will capture the includes from the block and allow them to be yielded into the layout:</p>
+<p>Added to a template, this will capture the includes from the block and allow
+them to be yielded into the layout:</p>
 
 <pre class="highlight erb"><code># app/views/layout.erb
 ...
@@ -29,9 +38,11 @@
 <span class="nt">&lt;/head&gt;</span>
 </code></pre>
 
-<p>This will automatically insert the contents of the block (in this case a stylesheet include) into the location the content is yielded within the layout.</p>
+<p>This will automatically insert the contents of the block (in this case a
+stylesheet include) into the location the content is yielded within the layout.</p>
 
-<p>You can also check if a <code>content_for</code> block exists for a given key using <code>content_for?</code>:</p>
+<p>You can also check if a <code>content_for</code> block exists for a given key using
+<code>content_for?</code>:</p>
 
 <pre class="highlight erb"><code># app/views/layout.erb
 <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">content_for?</span><span class="p">(</span><span class="ss">:assets</span><span class="p">)</span> <span class="cp">%&gt;</span>
@@ -39,7 +50,10 @@
 <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
 </code></pre>
 
-<p>The <code>capture_html</code> and the <code>concat_content</code> methods allow content to be manipulated and stored for use in building additional helpers accepting blocks or displaying information in a template. One example is the use of these in constructing a simplified ‘form_tag’ helper which accepts a block.</p>
+<p>The <code>capture_html</code> and the <code>concat_content</code> methods allow content to be
+manipulated and stored for use in building additional helpers accepting blocks
+or displaying information in a template. One example is the use of these in
+constructing a simplified ‘form_tag’ helper which accepts a block.</p>
 
 <pre class="highlight ruby"><code><span class="c1"># form_tag '/register' do ... end</span>
 <span class="k">def</span> <span class="nf">form_tag</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{},</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
@@ -49,7 +63,9 @@
 <span class="k">end</span>
 </code></pre>
 
-<p>This will capture the template body passed into the form_tag block and then append the content to the template through the use of <code>concat_content</code>. Note have been built to work for both haml and erb templates using the same syntax.</p>
+<p>This will capture the template body passed into the form_tag block and then
+append the content to the template through the use of <code>concat_content</code>. Note
+have been built to work for both haml and erb templates using the same syntax.</p>
 
 <p>The list of defined helpers in the ‘output helpers’ category:</p>
 
@@ -87,19 +103,25 @@
 
 <hr />
 
-<h3 id="tag-helpers">Tag Helpers</h3>
+<h2 id="tag-helpers">Tag Helpers</h2>
 
-<p>Tag helpers are the basic building blocks used to construct html ‘tags’ within a view template. There are three major functions for this category: <code>tag</code>, <code>content_tag</code> and <code>input_tag</code>.</p>
+<p>Tag helpers are the basic building blocks used to construct html ‘tags’ within a
+view template. There are three major functions for this category: <code>tag</code>,
+<code>content_tag</code> and <code>input_tag</code>.</p>
 
-<p>The tag and <code>content_tag</code> are for building arbitrary html tags with a name and specified options. If the tag contains ‘content’ within then <code>content_tag</code> is used. For example:</p>
+<p>The tag and <code>content_tag</code> are for building arbitrary html tags with a name and
+specified options. If the tag contains ‘content’ within then <code>content_tag</code> is
+used. For example:</p>
 
-<p>The <code>input_tag</code> is used to build tags that are related to accepting input from the user:</p>
+<p>The <code>input_tag</code> is used to build tags that are related to accepting input from
+the user:</p>
 
 <pre class="highlight erb"><code>input_tag :text, :class =&gt; "demo" # =&gt; <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">'text'</span> <span class="na">class=</span><span class="s">'demo'</span> <span class="nt">/&gt;</span>
 input_tag :password, :value =&gt; "secret", :class =&gt; "demo"
 </code></pre>
 
-<p>Note that all of these accept html options and result in returning a string containing html tags.</p>
+<p>Note that all of these accept html options and result in returning a string
+containing html tags.</p>
 
 <p>The list of defined helpers in the ‘tag helpers’ category:</p>
 
@@ -128,9 +150,11 @@ input_tag :password, :value =&gt; "secret", :class =&gt; "demo"
 
 <hr />
 
-<h3 id="asset-helpers">Asset Helpers</h3>
+<h2 id="asset-helpers">Asset Helpers</h2>
 
-<p>Asset helpers are intended to help insert useful html onto a view template such as ‘flash’ notices, hyperlinks, mail_to links, images, stylesheets and javascript. An example of their uses would be on a simple view template:</p>
+<p>Asset helpers are intended to help insert useful html onto a view template such
+as ‘flash’ notices, hyperlinks, mail_to links, images, stylesheets and
+javascript. An example of their uses would be on a simple view template:</p>
 
 <pre class="highlight haml"><code># app/views/example.haml
 ...
@@ -204,13 +228,17 @@ input_tag :password, :value =&gt; "secret", :class =&gt; "demo"
   </li>
 </ul>
 
-<p>By default, all ‘assets’ including images, scripts, and stylesheets have a timestamp appended at the end to clear the stale cache for the item when modified. To disable this, simply put the setting <code>disable :asset_stamp</code> in your application configuration within <code>app/app.rb</code>.</p>
+<p>By default, all ‘assets’ including images, scripts, and stylesheets have a
+timestamp appended at the end to clear the stale cache for the item when
+modified. To disable this, simply put the setting <code>disable :asset_stamp</code> in your
+application configuration within <code>app/app.rb</code>.</p>
 
 <hr />
 
-<h3 id="form-helpers">Form Helpers</h3>
+<h2 id="form-helpers">Form Helpers</h2>
 
-<p>Form helpers are the ‘standard’ form tag helpers you would come to expect when building forms. A simple example of constructing a non-object form would be:</p>
+<p>Form helpers are the ‘standard’ form tag helpers you would come to expect when
+building forms. A simple example of constructing a non-object form would be:</p>
 
 <pre class="highlight haml"><code># app/views/example.haml
 <span class="p">=</span> <span class="n">form_tag</span> <span class="s1">'/destroy'</span><span class="p">,</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">'destroy-form'</span><span class="p">,</span> <span class="ss">:method</span> <span class="o">=&gt;</span> <span class="s1">'delete'</span> <span class="k">do</span>
@@ -364,9 +392,10 @@ input_tag :password, :value =&gt; "secret", :class =&gt; "demo"
 
 <hr />
 
-<h3 id="formbuilders">FormBuilders</h3>
+<h2 id="formbuilders">FormBuilders</h2>
 
-<p>Form builders are full-featured objects allowing the construction of complex object-based forms using a simple, intuitive syntax.</p>
+<p>Form builders are full-featured objects allowing the construction of complex
+object-based forms using a simple, intuitive syntax.</p>
 
 <p>A form_for using these basic fields might look like:</p>
 
@@ -418,7 +447,8 @@ input_tag :password, :value =&gt; "secret", :class =&gt; "demo"
   </li>
 </ul>
 
-<p>The following are fields provided by AbstractFormBuilder that can be used within a form_for or fields_for:</p>
+<p>The following are fields provided by AbstractFormBuilder that can be used within
+a form_for or fields_for:</p>
 
 <ul>
   <li><code>error_messages(options={})</code>
@@ -514,9 +544,10 @@ input_tag :password, :value =&gt; "secret", :class =&gt; "demo"
 
 <hr />
 
-<h3 id="standard-form-builder">Standard Form Builder</h3>
+<h2 id="standard-form-builder">Standard Form Builder</h2>
 
-<p>There is also an additional StandardFormBuilder which builds on the abstract fields that can be used within a form_for.</p>
+<p>There is also an additional StandardFormBuilder which builds on the abstract
+fields that can be used within a form_for.</p>
 
 <p>A form_for using these standard fields might be:</p>
 
@@ -531,7 +562,8 @@ input_tag :password, :value =&gt; "secret", :class =&gt; "demo"
     <span class="p">=</span> <span class="n">f</span><span class="p">.</span><span class="nf">submit_block</span> <span class="s2">"Create"</span><span class="p">,</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">'button'</span>
 </code></pre>
 
-<p>and would generate this html (with each input contained in a paragraph and containing a label):</p>
+<p>and would generate this html (with each input contained in a paragraph and
+containing a label):</p>
 
 <pre class="highlight html"><code><span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">"register"</span> <span class="na">action=</span><span class="s">"/register"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"user_name"</span><span class="nt">&gt;</span>Full name:<span class="nt">&lt;/label&gt;</span>
@@ -541,7 +573,8 @@ input_tag :password, :value =&gt; "secret", :class =&gt; "demo"
 <span class="nt">&lt;/form&gt;</span>
 </code></pre>
 
-<p>The following are fields provided by StandardFormBuilder that can be used within a form_for or fields_for:</p>
+<p>The following are fields provided by StandardFormBuilder that can be used within
+a form_for or fields_for:</p>
 
 <ul>
   <li><code>text_field_block(field, options={}, label_options={})</code>
@@ -588,9 +621,10 @@ input_tag :password, :value =&gt; "secret", :class =&gt; "demo"
 
 <hr />
 
-<h3 id="custom-form-builders">Custom Form Builders</h3>
+<h2 id="custom-form-builders">Custom Form Builders</h2>
 
-<p>You can also easily build your own FormBuilder which allows for customized fields and behavior:</p>
+<p>You can also easily build your own FormBuilder which allows for customized
+fields and behavior:</p>
 
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">MyCustomFormBuilder</span> <span class="o">&lt;</span> <span class="no">AbstractFormBuilder</span>
   <span class="c1"># Here we have access to a number of useful variables</span>
@@ -611,20 +645,25 @@ input_tag :password, :value =&gt; "secret", :class =&gt; "demo"
   ...fields here...
 </code></pre>
 
-<p>The form builder can even be made into the default builder when form_for is invoked:</p>
+<p>The form builder can even be made into the default builder when form_for is
+invoked:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># anywhere in the Padrino or Sinatra application</span>
 <span class="n">set</span> <span class="ss">:default_builder</span><span class="p">,</span> <span class="s1">'MyCustomFormBuilder'</span>
 </code></pre>
 
-<p>And there you have it, a fairly complete form builder solution for Padrino (and Sinatra).
-I hope to create or merge in an even better ‘default’ form_builder in the near future.</p>
+<p>And there you have it, a fairly complete form builder solution for Padrino (and
+Sinatra). I hope to create or merge in an even better ‘default’ form_builder in
+the near future.</p>
 
 <hr />
 
-<h3 id="nested-object-form-support">Nested Object Form Support</h3>
+<h2 id="nested-object-form-support">Nested Object Form Support</h2>
 
-<p>Available in the 0.9.21 Padrino release is support for nested object form helpers. This allows forms to have arbitrarily complex nested forms that can build multiple related objects together. Let’s take a simple example of a person with an address. Here are the related psuedo models:</p>
+<p>Available in the 0.9.21 Padrino release is support for nested object form
+helpers. This allows forms to have arbitrarily complex nested forms that can
+build multiple related objects together. Let’s take a simple example of a person
+with an address. Here are the related psuedo models:</p>
 
 <pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">ORM</span><span class="o">::</span><span class="no">Base</span>
   <span class="n">has_many</span> <span class="ss">:addresses</span><span class="p">,</span> <span class="ss">:class_name</span> <span class="o">=&gt;</span> <span class="s1">'Address'</span>
@@ -636,7 +675,10 @@ I hope to create or merge in an even better ‘default’ form_builder in the ne
 <span class="k">end</span>
 </code></pre>
 
-<p>The model declarations are dependent on your chosen ORM. Check the documentation to understand how to declare nested attributes in your given ORM component. Given those models and enabling nested attributes for the association, the following view will allow nested form creation:</p>
+<p>The model declarations are dependent on your chosen ORM. Check the documentation
+to understand how to declare nested attributes in your given ORM component.
+Given those models and enabling nested attributes for the association, the
+following view will allow nested form creation:</p>
 
 <pre class="highlight haml"><code># app/views/person/_form.html.haml
 <span class="p">=</span> <span class="n">form_for</span> <span class="vi">@person</span><span class="p">,</span> <span class="s1">'/person/create'</span>  <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
@@ -654,24 +696,33 @@ I hope to create or merge in an even better ‘default’ form_builder in the ne
 
 </code></pre>
 
-<p>This will present a form that allows the person’s name and color to be set along with their first address. Using this functionality, the controller does not need to change whatsoever as the nested data will be passed in and instantiated as part of the parent model.</p>
+<p>This will present a form that allows the person’s name and color to be set along
+with their first address. Using this functionality, the controller does not need
+to change whatsoever as the nested data will be passed in and instantiated as
+part of the parent model.</p>
 
 <hr />
 
-<h3 id="format-helpers">Format Helpers</h3>
+<h2 id="format-helpers">Format Helpers</h2>
 
-<p>Format helpers are several useful utilities for manipulating the format of text to achieve a goal.
- The four format helpers are <code>escape_html</code>, <code>distance_of_time_in_words</code>, <code>time_ago_in_words</code>, and <code>js_escape_html</code>.</p>
+<p>Format helpers are several useful utilities for manipulating the format of text
+ to achieve a goal. The four format helpers are <code>escape_html</code>,
+ <code>distance_of_time_in_words</code>, <code>time_ago_in_words</code>, and <code>js_escape_html</code>.</p>
 
-<p>The escape_html and js_escape_html function are for taking an html string and escaping certain characters.
- <code>escape_html</code> will escape ampersands, brackets and quotes to their HTML/XML entities. This is useful to sanitize user content before displaying this on a template. <code>js_escape_html</code> is used for passing javascript information from a js template to a javascript function.</p>
+<p>The escape_html and js_escape_html function are for taking an html string and
+ escaping certain characters. <code>escape_html</code> will escape ampersands, brackets and
+ quotes to their HTML/XML entities. This is useful to sanitize user content
+ before displaying this on a template. <code>js_escape_html</code> is used for passing
+ javascript information from a js template to a javascript function.</p>
 
 <pre class="highlight ruby"><code><span class="n">escape_html</span><span class="p">(</span><span class="s1">'&lt;hello&gt;&amp;&lt;goodbye&gt;'</span><span class="p">)</span> <span class="c1"># =&gt; &amp;lt;hello&amp;gt;&amp;amp;&amp;lt;goodbye&amp;gt;</span>
 </code></pre>
 
-<p>There is also an alias for escape_html called <code>h</code> for even easier usage within templates.</p>
+<p>There is also an alias for escape_html called <code>h</code> for even easier usage within
+templates.</p>
 
-<p>Format helpers also includes a number of useful text manipulation functions such as <code>simple_format</code>, <code>pluralize</code>, <code>word_wrap</code>, and <code>truncate</code>.</p>
+<p>Format helpers also includes a number of useful text manipulation functions such
+as <code>simple_format</code>, <code>pluralize</code>, <code>word_wrap</code>, and <code>truncate</code>.</p>
 
 <pre class="highlight ruby"><code><span class="n">simple_format</span><span class="p">(</span><span class="s2">"hello</span><span class="se">\n</span><span class="s2">world"</span><span class="p">)</span> <span class="c1"># =&gt; "&lt;p&gt;hello&lt;br/&gt;world&lt;/p&gt;"</span>
 <span class="n">pluralize</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'person'</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="s1">'2 people'</span>
@@ -706,25 +757,31 @@ I hope to create or merge in an even better ‘default’ form_builder in the ne
   </li>
   <li><code>truncate(text, *args)</code>
     <ul>
-      <li>Truncates a given text after a given :length if text is longer than :length (defaults to 30).</li>
-      <li><code>truncate(“Once upon a time in a world far far away”, :length =&gt; 8)</code> =&gt; “Once upon…”</li>
+      <li>Truncates a given text after a given :length if text is longer than :length
+(defaults to 30).</li>
+      <li><code>truncate(“Once upon a time in a world far far away”, :length =&gt; 8)</code> =&gt;
+“Once upon…”</li>
     </ul>
   </li>
   <li><code>truncate_words(text, *args)</code>
     <ul>
-      <li>Truncates a given text after a given :length of total words (defaults to 30).</li>
-      <li>truncate_words(“Once upon a time in a world far far away”, :length =&gt; 4) =&gt; “Once upon a time…”</li>
+      <li>Truncates a given text after a given :length of total words (defaults to
+30).</li>
+      <li>truncate_words(“Once upon a time in a world far far away”, :length =&gt; 4)
+=&gt; “Once upon a time…”</li>
     </ul>
   </li>
   <li><code>highlight(text, words, *args)</code>
     <ul>
-      <li>Highlights one or more words everywhere in text by inserting it into a :highlighter string.</li>
+      <li>Highlights one or more words everywhere in text by inserting it into a
+:highlighter string.</li>
       <li><code>highlight(‘Lorem ipsum dolor sit amet’, ‘dolor’)</code></li>
     </ul>
   </li>
   <li><code>escape_html</code> (alias <code>h</code> and <code>h!</code>)
     <ul>
-      <li>(from RackUtils) Escape ampersands, brackets and quotes to their HTML/XML entities.</li>
+      <li>(from RackUtils) Escape ampersands, brackets and quotes to their HTML/XML
+entities.</li>
     </ul>
   </li>
   <li><code>strip_tags(html)</code>
@@ -749,7 +806,8 @@ I hope to create or merge in an even better ‘default’ form_builder in the ne
   </li>
   <li><code>js_escape_html(html_content)</code>
     <ul>
-      <li>Escapes html to allow passing information to javascript. Used for passing data inside an ajax .js.erb template</li>
+      <li>Escapes html to allow passing information to javascript. Used for passing
+data inside an ajax .js.erb template</li>
       <li><code>js_escape_html("&lt;h1&gt;Hey&lt;/h1&gt;")</code></li>
     </ul>
   </li>
@@ -757,12 +815,15 @@ I hope to create or merge in an even better ‘default’ form_builder in the ne
 
 <hr />
 
-<h3 id="render-helpers">Render Helpers</h3>
+<h2 id="render-helpers">Render Helpers</h2>
 
-<p>This component provides a number of rendering helpers making the process of displaying templates a bit easier.
-This plugin also has support for useful additions such as partials (with support for :collection) for the templating system.</p>
+<p>This component provides a number of rendering helpers making the process of
+displaying templates a bit easier. This plugin also has support for useful
+additions such as partials (with support for :collection) for the templating
+system.</p>
 
-<p>Using render plugin helpers is extremely simple. If you want to render an erb template in your view path:</p>
+<p>Using render plugin helpers is extremely simple. If you want to render an erb
+template in your view path:</p>
 
 <pre class="highlight ruby"><code><span class="n">render</span> <span class="ss">:erb</span><span class="p">,</span> <span class="s1">'path/to/erb/template'</span>
 </code></pre>
@@ -772,24 +833,28 @@ This plugin also has support for useful additions such as partials (with support
 <pre class="highlight ruby"><code><span class="n">render</span> <span class="ss">:haml</span><span class="p">,</span> <span class="s1">'path/to/haml/template'</span>
 </code></pre>
 
-<p>There is also a method which renders the first view matching the path and removes the need to define an engine:</p>
+<p>There is also a method which renders the first view matching the path and
+removes the need to define an engine:</p>
 
 <pre class="highlight ruby"><code><span class="n">render</span> <span class="s1">'path/to/any/template'</span>
 </code></pre>
 
-<p>It is worth noting these are mostly for convenience. With nested view file paths in Sinatra, this becomes tiresome:</p>
+<p>It is worth noting these are mostly for convenience. With nested view file paths
+in Sinatra, this becomes tiresome:</p>
 
 <pre class="highlight ruby"><code><span class="n">haml</span> <span class="ss">:"the/path/to/file"</span>
 <span class="n">erb</span> <span class="s2">"/path/to/file"</span><span class="p">.</span><span class="nf">to_sym</span>
 </code></pre>
 
-<p>Finally, we have the all-important partials support for rendering mini-templates onto a page:</p>
+<p>Finally, we have the all-important partials support for rendering mini-templates
+onto a page:</p>
 
 <pre class="highlight ruby"><code><span class="n">partial</span> <span class="s1">'photo/item'</span><span class="p">,</span> <span class="ss">:object</span> <span class="o">=&gt;</span> <span class="vi">@photo</span><span class="p">,</span> <span class="ss">:locals</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:foo</span> <span class="o">=&gt;</span> <span class="s1">'bar'</span> <span class="p">}</span>
 <span class="n">partial</span> <span class="s1">'photo/item'</span><span class="p">,</span> <span class="ss">:collection</span> <span class="o">=&gt;</span> <span class="vi">@photos</span>
 </code></pre>
 
-<p>This works as you would expect and also supports the collection counter inside the partial <code>item_counter</code></p>
+<p>This works as you would expect and also supports the collection counter inside
+the partial <code>item_counter</code></p>
 
 <pre class="highlight ruby"><code><span class="c1"># /views/photo/_item.haml</span>
 <span class="c1"># Access to collection counter with &lt;partial_name&gt;_counter i.e item_counter</span>
@@ -817,11 +882,16 @@ This plugin also has support for useful additions such as partials (with support
 
 <hr />
 
-<h3 id="custom-defined-helpers">Custom Defined Helpers</h3>
+<h2 id="custom-defined-helpers">Custom Defined Helpers</h2>
 
-<p>In addition to the helpers provided by Padrino out of the box, you can also add your own helper methods and classes that will be accessible within any controller or view automatically.</p>
+<p>In addition to the helpers provided by Padrino out of the box, you can also add
+your own helper methods and classes that will be accessible within any
+controller or view automatically.</p>
 
-<p>To define a helper method, simply use an existing helper file (created when generating a controller) or define your own file in <code>app/helpers</code> within your application. Methods can be made available within you controller by simply wrapping the methods in the <code>helpers</code> block:</p>
+<p>To define a helper method, simply use an existing helper file (created when
+generating a controller) or define your own file in <code>app/helpers</code> within your
+application. Methods can be made available within you controller by simply
+wrapping the methods in the <code>helpers</code> block:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/helpers/some_helper.rb</span>
 <span class="no">MyAppName</span><span class="p">.</span><span class="nf">helpers</span> <span class="k">do</span>
@@ -841,7 +911,8 @@ This plugin also has support for useful additions such as partials (with support
 <span class="k">end</span>
 </code></pre>
 
-<p>These helpers can then easily be invoked in any controllers or templates within your application:</p>
+<p>These helpers can then easily be invoked in any controllers or templates within
+your application:</p>
 
 <pre class="highlight ruby"><code><span class="c1"># app/controllers/posts.rb</span>
 <span class="no">MyAppName</span><span class="p">.</span><span class="nf">controllers</span> <span class="ss">:posts</span> <span class="k">do</span>
@@ -852,17 +923,25 @@ This plugin also has support for useful additions such as partials (with support
 <span class="k">end</span>
 </code></pre>
 
-<p>Use these in situations where you wish to cleanup your controller or your view code. Helpers are particularly useful for DRY’ing up repeated use of the same markup or behavior. <strong>Note</strong> that helper methods and objects should be reloaded automatically for you in development.</p>
+<p>Use these in situations where you wish to cleanup your controller or your view
+code. Helpers are particularly useful for DRY’ing up repeated use of the same
+markup or behavior. <strong>Note</strong> that helper methods and objects should be reloaded
+automatically for you in development.</p>
 
 <hr />
 
-<h3 id="unobtrusive-javascript-helpers">Unobtrusive Javascript Helpers</h3>
+<h2 id="unobtrusive-javascript-helpers">Unobtrusive Javascript Helpers</h2>
 
-<p>In addition to the helpers above, certain helpers also have certain unobtrusive javascript options that are available to be used with any of the javascript adapters packaged with padrino. Once your app has been <a href="http://www.padrinorb.com/guides/generators">generated</a> with a particular javascript adapter, you can utilize the baked in support with the <code>link_to</code> and <code>form_for</code> tags.</p>
+<p>In addition to the helpers above, certain helpers also have certain unobtrusive
+javascript options that are available to be used with any of the javascript
+adapters packaged with padrino. Once your app has been
+<a href="http://www.padrinorb.com/guides/generators">generated</a> with a particular
+javascript adapter, you can utilize the baked in support with the <code>link_to</code> and
+<code>form_for</code> tags.</p>
 
 <hr />
 
-<h3 id="remote-forms">Remote Forms</h3>
+<h2 id="remote-forms">Remote Forms</h2>
 
 <p>To generate a ‘remote’ form in a view:</p>
 
@@ -892,11 +971,13 @@ This plugin also has support for useful additions such as partials (with support
 <span class="k">end</span>
 </code></pre>
 
-<p>A remote form, when submitted by the user, invokes an xhr request to the specified url (with the appropriate form parameters) and then evaluates the response as javascript.</p>
+<p>A remote form, when submitted by the user, invokes an xhr request to the
+specified url (with the appropriate form parameters) and then evaluates the
+response as javascript.</p>
 
 <hr />
 
-<h3 id="remote-links">Remote Links</h3>
+<h2 id="remote-links">Remote Links</h2>
 
 <p>To generate a ‘remote’ link in a view:</p>
 
@@ -908,11 +989,12 @@ This plugin also has support for useful additions such as partials (with support
 <pre class="highlight html"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/items/new.js"</span> <span class="na">data-remote=</span><span class="s">"true"</span><span class="nt">&gt;</span>add item<span class="nt">&lt;/a&gt;</span>
 </code></pre>
 
-<p>A remote link, when clicked by the user, invokes an xhr request to the specified url and then evaluates the response as javascript.</p>
+<p>A remote link, when clicked by the user, invokes an xhr request to the specified
+url and then evaluates the response as javascript.</p>
 
 <hr />
 
-<h3 id="link-confirmations">Link Confirmations</h3>
+<h2 id="link-confirmations">Link Confirmations</h2>
 
 <p>To generate a ‘confirmation’ link in a view:</p>
 
@@ -924,11 +1006,12 @@ This plugin also has support for useful additions such as partials (with support
 <pre class="highlight html"><code><span class="nt">&lt;a</span> <span class="na">data-confirm=</span><span class="s">"Are You Sure?"</span> <span class="na">href=</span><span class="s">"/posts/destroy/7"</span><span class="nt">&gt;</span>[destroy]<span class="nt">&lt;/a&gt;</span>
 </code></pre>
 
-<p>A link with confirmation, when clicked by the user, displays an alert box confirming the action before invoking the link.</p>
+<p>A link with confirmation, when clicked by the user, displays an alert box
+confirming the action before invoking the link.</p>
 
 <hr />
 
-<h3 id="custom-method-links">Custom Method Links</h3>
+<h2 id="custom-method-links">Custom Method Links</h2>
 
 <p>To generate a ‘method’ link in a view:</p>
 
@@ -940,19 +1023,23 @@ This plugin also has support for useful additions such as partials (with support
 <pre class="highlight html"><code><span class="nt">&lt;a</span> <span class="na">data-method=</span><span class="s">"delete"</span> <span class="na">href=</span><span class="s">"/posts/destroy/7"</span> <span class="na">rel=</span><span class="s">"nofollow"</span><span class="nt">&gt;</span>[destroy]<span class="nt">&lt;/a&gt;</span>
 </code></pre>
 
-<p>A link with a custom method, when clicked by the user, visits the link using the http method specified rather than via the ‘GET’ method.</p>
+<p>A link with a custom method, when clicked by the user, visits the link using the
+http method specified rather than via the ‘GET’ method.</p>
 
 <hr />
 
-<h3 id="enabling-ujs-adapter">Enabling UJS Adapter</h3>
+<h2 id="enabling-ujs-adapter">Enabling UJS Adapter</h2>
 
-<p><strong>Note</strong>: In order for the unobstrusive javascript to work, you must be sure to include the chosen javascript framework and ujs adapter in your views (or layout). For instance, if I selected jquery for my project:</p>
+<p><strong>Note</strong>: In order for the unobstrusive javascript to work, you must be sure to
+  include the chosen javascript framework and ujs adapter in your views (or
+  layout). For instance, if I selected jquery for my project:</p>
 
 <pre class="highlight haml"><code><span class="c">-# /apps/views/layouts/application.haml
 </span><span class="p">=</span> <span class="n">javascript_include_tag</span> <span class="s1">'jquery'</span><span class="p">,</span> <span class="s1">'jquery-ujs'</span><span class="p">,</span> <span class="s1">'application'</span>
 </code></pre>
 
-<p>This will ensure jquery and the jquery ujs adapter are properly loaded to work with the helpers listed above.</p>
+<p>This will ensure jquery and the jquery ujs adapter are properly loaded to work
+with the helpers listed above.</p>
 
 <p class="excerpt"><a class="button" href="/guides/padrino-admin">Next Section – Padrino Admin</a></p>
 </div></div></div><hr /><footer class="footer"><p>Padrino is released under the MIT LICENSE<br />
